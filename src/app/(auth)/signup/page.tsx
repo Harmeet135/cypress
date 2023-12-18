@@ -19,11 +19,11 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import Logo from '../../../../public/cypresslogo.svg';
-// import Loader from '@/components/global/Loader';
-// import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { MailCheck } from 'lucide-react';
 import { FormSchema } from '@/lib/types';
-// import { actionSignUpUser } from '@/lib/server-actions/auth-actions';
+import Loader from '@/components/loader';
+import { actionSignUpUser } from '@/lib/server-actions/auth-actions';
 
 const SignUpFormSchema = z
   .object({
@@ -71,13 +71,13 @@ const Signup = () => {
 
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async ({ email, password }: z.infer<typeof FormSchema>) => {
-    // const { error } = await actionSignUpUser({ email, password });
-    // if (error) {
-    //   setSubmitError(error.message);
-    //   form.reset();
-    //   return;
-    // }
-    // setConfirmation(true);
+    const { error } = await actionSignUpUser({ email, password });
+    if (error) {
+      setSubmitError(error.message);
+      form.reset();
+      return;
+    }
+    setConfirmation(true);
   };
 
   return (
@@ -172,13 +172,13 @@ const Signup = () => {
                 </FormItem>
               )}
             />
-            {/* <Button
+            <Button
               type="submit"
               className="w-full p-6"
               disabled={isLoading}
             >
               {!isLoading ? 'Create Account' : <Loader />}
-            </Button> */}
+            </Button>
           </>
         )}
 
@@ -192,7 +192,7 @@ const Signup = () => {
             Login
           </Link>
         </span>
-        {/* {(confirmation || codeExchangeError) && (
+        {(confirmation || codeExchangeError) && (
           <>
             <Alert className={confirmationAndErrorStyles}>
               {!codeExchangeError && <MailCheck className="h-4 w-4" />}
@@ -204,7 +204,7 @@ const Signup = () => {
               </AlertDescription>
             </Alert>
           </>
-        )} */}
+        )}
       </form>
     </Form>
   );
