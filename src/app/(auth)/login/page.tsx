@@ -20,7 +20,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 // import { Separator } from '@/components/ui/separator';
 import { actionLoginUser } from '@/lib/server-actions/auth-actions';
-import Loader from '@/components/loader';
+import { Loader } from 'lucide-react';
 
 const LoginPage = () => {
   const router = useRouter();
