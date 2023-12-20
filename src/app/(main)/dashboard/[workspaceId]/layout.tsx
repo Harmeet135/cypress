@@ -9,8 +9,7 @@ interface WorkspacePage{
 const Layout: React.FC<WorkspacePage> = ({children , params}) => {
   return (
     <main className=''>
-    <Sidebar params={params}></Sidebar>
-
+    <Sidebar params={params}/>
         {children}
     </main>
   )

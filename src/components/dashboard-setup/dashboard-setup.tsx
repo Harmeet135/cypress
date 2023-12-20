@@ -87,7 +87,7 @@ const DashboardSetup: React.FC<DashboardSetupProps> = ({
         inTrash: '',
         title: value.workspaceName,
         workspaceOwner: user.id,
-        // logo: filePath || null,
+        logo: filePath || null,
         bannerUrl: '',
       };
       const { data, error: createError } = await createWorkspace(newWorkspace);
