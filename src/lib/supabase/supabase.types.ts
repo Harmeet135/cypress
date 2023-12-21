@@ -417,6 +417,8 @@ export interface Database {
   };
 }
 
+//  supabase databases
+
 export type workspace = InferSelectModel<typeof workspaces>;
 export type User = InferSelectModel<typeof users>;
 export type Folder = InferSelectModel<typeof folders>;

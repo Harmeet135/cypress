@@ -36,6 +36,13 @@
       "when": 1703081723814,
       "tag": "0004_red_miss_america",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1703188665335,
+      "tag": "0005_handy_yellowjacket",
+      "breakpoints": true
     }
   ]
 }

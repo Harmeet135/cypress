@@ -250,7 +250,7 @@ const HomePage = () => {
                   "
                     >
                       <Avatar>
-                        <AvatarImage src={`/avatars/${index + 1}.png`} />
+                        {/* <AvatarImage src={`/avatars/${index + 1}.png`} /> */}
                         <AvatarFallback>AV</AvatarFallback>
                       </Avatar>
                       <div>

@@ -16,9 +16,9 @@ import { SelectGroup } from '@radix-ui/react-select';
 import { Lock, Plus, Share } from 'lucide-react';
 import { Button } from '../ui/button';
 import { v4 } from 'uuid';
-import {  createWorkspace } from '@/lib/supabase/queries';
-// import CollaboratorSearch from './collaborator-search';
-// import { ScrollArea } from '../ui/scroll-area';
+import { addCollaborators, createWorkspace } from '@/lib/supabase/queries';
+import CollaboratorSearch from './collaborator-search';
+import { ScrollArea } from '../ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { useToast } from '../ui/use-toast';
 
@@ -32,7 +32,10 @@ const WorkspaceCreator = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const addCollaborator = (user: User) => {
+    console.log(user , "user");
+
     setCollaborators([...collaborators, user]);
+    console.log(collaborators , "collaborators");
   };
 
   const removeCollaborator = (user: User) => {
@@ -62,7 +65,7 @@ const WorkspaceCreator = () => {
       if (permissions === 'shared') {
         toast({ title: 'Success', description: 'Created the workspace' });
         await createWorkspace(newWorkspace);
-        // await addCollaborators(collaborators, uuid);
+        await addCollaborators(collaborators, uuid);
         router.refresh();
       }
     }
@@ -114,15 +117,6 @@ const WorkspaceCreator = () => {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-            <SelectItem value="Test">
-                <div className="p-2 flex gap-4 justify-center items-center">
-                  <Share></Share>
-                  <article className="text-left flex flex-col">
-                    <span>testing</span>
-                    <span>For test</span>
-                  </article>
-                </div>
-              </SelectItem>
               <SelectItem value="private">
                 <div
                   className="p-2
@@ -151,14 +145,13 @@ const WorkspaceCreator = () => {
                   </article>
                 </div>
               </SelectItem>
-              
             </SelectGroup>
           </SelectContent>
         </Select>
       </>
       {permissions === 'shared' && (
         <div>
-          {/* <CollaboratorSearch
+          <CollaboratorSearch
             existingCollaborators={collaborators}
             getCollaborator={(user) => {
               addCollaborator(user);
@@ -171,12 +164,12 @@ const WorkspaceCreator = () => {
               <Plus />
               Add Collaborators
             </Button>
-          </CollaboratorSearch> */}
+          </CollaboratorSearch>
           <div className="mt-4">
             <span className="text-sm text-muted-foreground">
               Collaborators {collaborators.length || ''}
             </span>
-            {/* <ScrollArea
+            <ScrollArea
               className="
             h-[120px]
             overflow-y-scroll
@@ -236,7 +229,7 @@ const WorkspaceCreator = () => {
                   </span>
                 </div>
               )}
-            </ScrollArea> */}
+            </ScrollArea>
           </div>
         </div>
       )}

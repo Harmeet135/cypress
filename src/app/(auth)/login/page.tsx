@@ -18,9 +18,9 @@ import Image from 'next/image';
 import Logo from '../../../../public/cypresslogo.svg';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-// import { Separator } from '@/components/ui/separator';
+import { Separator } from '@/components/ui/separator';
 import { actionLoginUser } from '@/lib/server-actions/auth-actions';
-import { Loader } from 'lucide-react';
+import Loader from '@/components/global/Loader';
 
 const LoginPage = () => {
   const router = useRouter();

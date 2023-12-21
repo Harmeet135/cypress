@@ -5,6 +5,10 @@ import { getUserSubscriptionStatus, getWorkspaceDetails  ,  getFolders, getPriva
 import { redirect } from 'next/navigation';
 import WorkspaceDropdown from './workspace-dropdown';
 import { twMerge } from 'tailwind-merge';
+import { ScrollArea } from '../ui/scroll-area';
+import PlanUsage from './plan-usage';
+import NativeNavigation from './native-navigation';
+import FoldersDropdownList from './folders-dropdoen-list';
 
 interface SidebarProps{
     params: {workspaceId: string};
@@ -22,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = async ({params , classname}) => {
   if (!user) return;
 
   // subscription
-  const { data : subscriptiondata , error  : subscriptionError  } = 
+  const { data : subscriptionData , error  : subscriptionError  } = 
    await getUserSubscriptionStatus(user.id);
 
   // folders
@@ -59,16 +63,17 @@ const Sidebar: React.FC<SidebarProps> = async ({params , classname}) => {
             ...sharedWorkspaces,
           ].find((workspace) => workspace.id === params.workspaceId)}
         />
-        {/* <PlanUsage
+        <PlanUsage
           foldersLength={workspaceFolderData?.length || 0}
           subscription={subscriptionData}
-        /> */}
-        {/* <NativeNavigation myWorkspaceId={params.workspaceId} /> */}
-        {/* <ScrollArea
+        />
+        <NativeNavigation myWorkspaceId={params.workspaceId} />
+        <ScrollArea
           className="overflow-scroll relative
           h-[450px]
         "
         >
+          <p>cdbusbi</p>
           <div
             className="pointer-events-none 
           w-full 
@@ -84,7 +89,7 @@ const Sidebar: React.FC<SidebarProps> = async ({params , classname}) => {
             workspaceFolders={workspaceFolderData || []}
             workspaceId={params.workspaceId}
           />
-        </ScrollArea> */}
+        </ScrollArea>
       </div>
       {/* <UserCard subscription={subscriptionData} /> */}
     </aside>
