@@ -370,6 +370,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           ?.files.filter((file) => !file.inTrash)
           .map((file) => {
             const customFileId = `${id}folder${file.id}`;
+            console.log(customFileId,"fielid");
             return (
               <Dropdown
                 key={file.id}
