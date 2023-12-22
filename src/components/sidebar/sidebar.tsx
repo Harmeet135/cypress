@@ -73,7 +73,6 @@ const Sidebar: React.FC<SidebarProps> = async ({params , classname}) => {
           h-[450px]
         "
         >
-          <p>cdbusbi</p>
           <div
             className="pointer-events-none 
           w-full 

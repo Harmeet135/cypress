@@ -24,6 +24,7 @@ const DashboardPage = async () => {
     await getUserSubscriptionStatus(user.id);
 
   if (subscriptionError) return;
+
   if (!workspace)
     return (
       <div
@@ -41,6 +42,7 @@ const DashboardPage = async () => {
         />
       </div>
     );
+
   redirect(`/dashboard/${workspace.id}`);
 };
 

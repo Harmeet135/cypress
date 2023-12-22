@@ -281,15 +281,15 @@ export const createFolder = async (folder: Folder) => {
   }
 };
 
-// export const createFile = async (file: File) => {
-//   try {
-//     await db.insert(files).values(file);
-//     return { data: null, error: null };
-//   } catch (error) {
-//     console.log(error);
-//     return { data: null, error: 'Error' };
-//   }
-// };
+export const createFile = async (file: File) => {
+  try {
+    await db.insert(files).values(file);
+    return { data: null, error: null };
+  } catch (error) {
+    console.log(error);
+    return { data: null, error: 'Error' };
+  }
+};
 
 export const updateFolder = async (
   folder: Partial<Folder>,

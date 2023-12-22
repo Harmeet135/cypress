@@ -43,6 +43,13 @@
       "when": 1703188665335,
       "tag": "0005_handy_yellowjacket",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1703190874097,
+      "tag": "0006_robust_omega_sentinel",
+      "breakpoints": true
     }
   ]
 }
