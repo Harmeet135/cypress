@@ -2,7 +2,7 @@ import TitleSection from '@/components/landing-page/title-section';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import React from 'react';
-import Banner from '../../../public/appBanner.png';
+// import Banner from '../../../public/appBanner.png';
 import Cal from '../../../public/cal.png';
 import Diamond from '../../../public/icons/diamond.svg';
 import CheckIcon from '../../../public/icons/check.svg';
@@ -68,10 +68,10 @@ const HomePage = () => {
           ml-[-50px]
         "
         >
-          <Image
-            src={Banner}
+          {/* <Image
+            src={}
             alt="Application Banner"
-          />
+          /> */}
           <div
             className="bottom-0
             top-[50%]

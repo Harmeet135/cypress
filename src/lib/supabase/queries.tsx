@@ -199,7 +199,7 @@ export const getSharedWorkspaces = async (userId: string) => {
 
 export const getFiles = async (folderId: string) => {
   const isValid = validate(folderId);
-  if (!isValid) return { data: null, error: 'Error' };
+  if (!isValid) return { data: null, error: 'Error in folderID' };
   try {
     const results = (await db
       .select()
@@ -223,6 +223,29 @@ export const addCollaborators = async (users: User[], workspaceId: string) => {
       await db.insert(collaborators).values({ workspaceId, userId: user.id });
   });
 };
+
+
+export const removeCollaborators = async (
+  users: User[],
+  workspaceId: string
+) => {
+  const response = users.forEach(async (user: User) => {
+    const userExists = await db.query.collaborators.findFirst({
+      where: (u, { eq }) =>
+        and(eq(u.userId, user.id), eq(u.workspaceId, workspaceId)),
+    });
+    if (userExists)
+      await db
+        .delete(collaborators)
+        .where(
+          and(
+            eq(collaborators.workspaceId, workspaceId),
+            eq(collaborators.userId, user.id)
+          )
+        );
+  });
+};
+
 
 // export const removeCollaborators = async (
 //   users: User[],
@@ -351,6 +374,7 @@ export const getCollaborators = async (workspaceId: string) => {
   const resolvedUsers = await Promise.all(userInformation);
   return resolvedUsers.filter(Boolean) as User[];
 };
+
 
 export const getUsersFromSearch = async (email: string) => {
   if (!email) return [];

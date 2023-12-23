@@ -111,6 +111,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           description: 'Could not update the title for this file',
         });
       } else
+      console.log("Toast Values on Blur:", { title: 'Success', description: 'Folder title changed.' });
         toast({
           title: 'Success',
           description: 'File title changed.',
@@ -138,10 +139,12 @@ const Dropdown: React.FC<DropdownProps> = ({
           description: 'Could not update the emoji for this folder',
         });
       } else {
+        // console.log("Toast Values on Blur:", { title: 'Success', description: 'Folder title changed.' });
         toast({
           title: 'Success',
           description: 'Update emoji for the folder',
         });
+        // console.log( toast);
       }
     }
   };

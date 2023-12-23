@@ -64,6 +64,9 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 const Header = () => {
+  const butclick = () => {
+    console.log('button clicked')
+  }
   const [path, setPath] = useState('#products');
   return (
     <header
@@ -239,7 +242,8 @@ const Header = () => {
           <Button
             variant="btn-primary"
             className="whitespace-nowrap"
-          >
+            onClick={butclick}
+ >
             Sign Up
           </Button>
         </Link>

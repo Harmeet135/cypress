@@ -8,12 +8,13 @@ import DashboardSetup from '@/components/dashboard-setup/dashboard-setup';
 import { getUserSubscriptionStatus } from '@/lib/supabase/queries';
 
 const DashboardPage = async () => {
+  console.log('reached');
   const supabase = createServerComponentClient({ cookies });
-
+  console.log(supabase, 'supabase');
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
+//  console.log(user,"user");
   if (!user) return;
 
   const workspace = await db.query.workspaces.findFirst({
@@ -24,7 +25,7 @@ const DashboardPage = async () => {
     await getUserSubscriptionStatus(user.id);
 
   if (subscriptionError) return;
-
+  console.log('subscription');
   if (!workspace)
     return (
       <div
@@ -42,8 +43,13 @@ const DashboardPage = async () => {
         />
       </div>
     );
-
-  redirect(`/dashboard/${workspace.id}`);
+    else {
+      console.log(workspace.id, "workspace id");
+      
+      redirect(`/dashboard/${workspace.id}`);
+      // Console log after the redirect; this wouldn't typically run in a real-world scenario.
+      
+    }
 };
 
 export default DashboardPage;
