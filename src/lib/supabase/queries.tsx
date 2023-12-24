@@ -96,6 +96,7 @@ export const getWorkspaceDetails = async (workspaceId: string) => {
 //   }
 // };
 
+
 export const deleteFile = async (fileId: string) => {
   if (!fileId) return;
   await db.delete(files).where(eq(files.id, fileId));
