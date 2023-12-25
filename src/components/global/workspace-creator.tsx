@@ -32,10 +32,7 @@ const WorkspaceCreator = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const addCollaborator = (user: User) => {
-    console.log(user , "user");
-
     setCollaborators([...collaborators, user]);
-    console.log(collaborators , "collaborators");
   };
 
   const removeCollaborator = (user: User) => {

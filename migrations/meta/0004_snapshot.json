@@ -1,8 +1,8 @@
 {
-  "id": "176fe1a7-e1f2-4ef1-9410-a8f407ec924a",
-  "prevId": "80ba38d9-c522-4eb2-8843-a3c81fa9fa17",
   "version": "5",
   "dialect": "pg",
+  "id": "9cd1faa9-ee4c-48a7-b5ab-7a0384f80b74",
+  "prevId": "6e08bab1-5366-455a-9ab5-aff713371ab5",
   "tables": {
     "collaborators": {
       "name": "collaborators",
@@ -84,12 +84,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -114,6 +108,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "logo": {
+          "name": "logo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "banner_url": {
           "name": "banner_url",
           "type": "text",
@@ -124,7 +124,7 @@
           "name": "workspace_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "folder_id": {
           "name": "folder_id",
@@ -182,12 +182,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -208,6 +202,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false

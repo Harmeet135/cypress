@@ -1,8 +1,8 @@
 {
-  "id": "5f4b2700-e44f-4970-810e-34fc98d5c5bc",
-  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
+  "id": "13b54a97-f449-4e2d-86b2-2d26b881092a",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "workspaces": {
       "name": "workspaces",
@@ -47,6 +47,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false

@@ -1,8 +1,8 @@
 {
-  "id": "bb2f6152-8905-4d53-a02a-5fa74891172c",
-  "prevId": "8062f704-ba8e-471f-92e8-0fbaf2201bb6",
   "version": "5",
   "dialect": "pg",
+  "id": "19a7a498-21dc-4a8e-8c3d-e7dc663e3941",
+  "prevId": "20f8d716-279a-4369-96b5-a1350235dcae",
   "tables": {
     "collaborators": {
       "name": "collaborators",
@@ -119,7 +119,7 @@
           "name": "workspace_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "folder_id": {
           "name": "folder_id",
@@ -198,6 +198,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false

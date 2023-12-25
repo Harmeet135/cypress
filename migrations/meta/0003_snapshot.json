@@ -1,20 +1,13 @@
 {
-  "id": "80ba38d9-c522-4eb2-8843-a3c81fa9fa17",
-  "prevId": "e2cd9bd8-fac0-4dae-a557-18a068c0520a",
   "version": "5",
   "dialect": "pg",
+  "id": "6e08bab1-5366-455a-9ab5-aff713371ab5",
+  "prevId": "64d8059e-e381-428d-9ef5-7689974485ad",
   "tables": {
     "collaborators": {
       "name": "collaborators",
       "schema": "",
       "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
         "workspace_id": {
           "name": "workspace_id",
           "type": "uuid",
@@ -84,12 +77,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -114,6 +101,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "logo": {
+          "name": "logo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "banner_url": {
           "name": "banner_url",
           "type": "text",
@@ -124,7 +117,7 @@
           "name": "workspace_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "folder_id": {
           "name": "folder_id",
@@ -182,12 +175,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -208,6 +195,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -409,6 +402,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false

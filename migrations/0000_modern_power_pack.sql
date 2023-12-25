@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS "workspaces" (
 	"icon_id" text NOT NULL,
 	"data" text,
 	"in_trash" text,
+	"logo" text,
 	"banner_url" text
 );

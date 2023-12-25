@@ -7,7 +7,6 @@ import { and, eq, ilike, notExists } from 'drizzle-orm';
 import { collaborators } from './schema';
 import { revalidatePath } from 'next/cache';
 
-//creating workspace
 export const createWorkspace = async (workspace: workspace) => {
   try {
     const response = await db.insert(workspaces).values(workspace);
@@ -77,25 +76,24 @@ export const getWorkspaceDetails = async (workspaceId: string) => {
   }
 };
 
-// export const getFileDetails = async (fileId: string) => {
-//   const isValid = validate(fileId);
-//   if (!isValid) {
-//     data: [];
-//     error: 'Error';
-//   }
-//   try {
-//     const response = (await db
-//       .select()
-//       .from(files)
-//       .where(eq(files.id, fileId))
-//       .limit(1)) as File[];
-//     return { data: response, error: null };
-//   } catch (error) {
-//     console.log('🔴Error', error);
-//     return { data: [], error: 'Error' };
-//   }
-// };
-
+export const getFileDetails = async (fileId: string) => {
+  const isValid = validate(fileId);
+  if (!isValid) {
+    data: [];
+    error: 'Error';
+  }
+  try {
+    const response = (await db
+      .select()
+      .from(files)
+      .where(eq(files.id, fileId))
+      .limit(1)) as File[];
+    return { data: response, error: null };
+  } catch (error) {
+    console.log('🔴Error', error);
+    return { data: [], error: 'Error' };
+  }
+};
 
 export const deleteFile = async (fileId: string) => {
   if (!fileId) return;
@@ -104,7 +102,7 @@ export const deleteFile = async (fileId: string) => {
 
 export const deleteFolder = async (folderId: string) => {
   if (!folderId) return;
-  await db.delete(files).where(eq(files.id, folderId));
+  await db.delete(folders).where(eq(folders.id, folderId));
 };
 
 export const getFolderDetails = async (folderId: string) => {
@@ -138,13 +136,13 @@ export const getPrivateWorkspaces = async (userId: string) => {
       iconId: workspaces.iconId,
       data: workspaces.data,
       inTrash: workspaces.inTrash,
-    //   logo: workspaces.logo,
+      logo: workspaces.logo,
       bannerUrl: workspaces.bannerUrl,
     })
     .from(workspaces)
     .where(
       and(
-        notExists(  //notExists is filtering the workspaces that are not in the collaborators tabl(returning the workspaces that are not collaborated)
+        notExists(
           db
             .select()
             .from(collaborators)
@@ -200,7 +198,7 @@ export const getSharedWorkspaces = async (userId: string) => {
 
 export const getFiles = async (folderId: string) => {
   const isValid = validate(folderId);
-  if (!isValid) return { data: null, error: 'Error in folderID' };
+  if (!isValid) return { data: null, error: 'Error' };
   try {
     const results = (await db
       .select()
@@ -225,7 +223,6 @@ export const addCollaborators = async (users: User[], workspaceId: string) => {
   });
 };
 
-
 export const removeCollaborators = async (
   users: User[],
   workspaceId: string
@@ -247,28 +244,6 @@ export const removeCollaborators = async (
   });
 };
 
-
-// export const removeCollaborators = async (
-//   users: User[],
-//   workspaceId: string
-// ) => {
-//   const response = users.forEach(async (user: User) => {
-//     const userExists = await db.query.collaborators.findFirst({
-//       where: (u, { eq }) =>
-//         and(eq(u.userId, user.id), eq(u.workspaceId, workspaceId)),
-//     });
-//     if (userExists)
-//       await db
-//         .delete(collaborators)
-//         .where(
-//           and(
-//             eq(collaborators.workspaceId, workspaceId),
-//             eq(collaborators.userId, user.id)
-//           )
-//         );
-//   });
-// };
-
 export const findUser = async (userId: string) => {
   const response = await db.query.users.findFirst({
     where: (u, { eq }) => eq(u.id, userId),
@@ -276,24 +251,24 @@ export const findUser = async (userId: string) => {
   return response;
 };
 
-// export const getActiveProductsWithPrice = async () => {
-//   try {
-//     const res = await db.query.products.findMany({
-//       where: (pro, { eq }) => eq(pro.active, true),
+export const getActiveProductsWithPrice = async () => {
+  try {
+    const res = await db.query.products.findMany({
+      where: (pro, { eq }) => eq(pro.active, true),
 
-//       with: {
-//         prices: {
-//           where: (pri, { eq }) => eq(pri.active, true),
-//         },
-//       },
-//     });
-//     if (res.length) return { data: res, error: null };
-//     return { data: [], error: null };
-//   } catch (error) {
-//     console.log(error);
-//     return { data: [], error };
-//   }
-// };
+      with: {
+        prices: {
+          where: (pri, { eq }) => eq(pri.active, true),
+        },
+      },
+    });
+    if (res.length) return { data: res, error: null };
+    return { data: [], error: null };
+  } catch (error) {
+    console.log(error);
+    return { data: [], error };
+  }
+};
 
 export const createFolder = async (folder: Folder) => {
   try {
@@ -375,7 +350,6 @@ export const getCollaborators = async (workspaceId: string) => {
   const resolvedUsers = await Promise.all(userInformation);
   return resolvedUsers.filter(Boolean) as User[];
 };
-
 
 export const getUsersFromSearch = async (email: string) => {
   if (!email) return [];

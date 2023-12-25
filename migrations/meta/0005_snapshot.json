@@ -1,8 +1,8 @@
 {
-  "id": "8062f704-ba8e-471f-92e8-0fbaf2201bb6",
-  "prevId": "176fe1a7-e1f2-4ef1-9410-a8f407ec924a",
   "version": "5",
   "dialect": "pg",
+  "id": "20f8d716-279a-4369-96b5-a1350235dcae",
+  "prevId": "9cd1faa9-ee4c-48a7-b5ab-7a0384f80b74",
   "tables": {
     "collaborators": {
       "name": "collaborators",
@@ -85,12 +85,6 @@
           "notNull": true,
           "default": "now()"
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -115,6 +109,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "logo": {
+          "name": "logo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "banner_url": {
           "name": "banner_url",
           "type": "text",
@@ -125,7 +125,7 @@
           "name": "workspace_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "folder_id": {
           "name": "folder_id",
@@ -184,12 +184,6 @@
           "notNull": true,
           "default": "now()"
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -210,6 +204,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false

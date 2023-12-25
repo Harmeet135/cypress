@@ -1,8 +1,8 @@
 {
-  "id": "e2cd9bd8-fac0-4dae-a557-18a068c0520a",
-  "prevId": "41359dcf-6b56-46d0-89bc-eefabe4ca5a4",
   "version": "5",
   "dialect": "pg",
+  "id": "64d8059e-e381-428d-9ef5-7689974485ad",
+  "prevId": "cec1cc2d-0f89-49e1-8cb8-7054c7e2fc74",
   "tables": {
     "files": {
       "name": "files",
@@ -20,12 +20,6 @@
           "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": false
-        },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
         },
         "title": {
           "name": "title",
@@ -51,6 +45,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "logo": {
+          "name": "logo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "banner_url": {
           "name": "banner_url",
           "type": "text",
@@ -61,7 +61,7 @@
           "name": "workspace_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "folder_id": {
           "name": "folder_id",
@@ -119,12 +119,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workspace_owner": {
-          "name": "workspace_owner",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
         "title": {
           "name": "title",
           "type": "text",
@@ -145,6 +139,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -346,6 +346,12 @@
         },
         "in_trash": {
           "name": "in_trash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo": {
+          "name": "logo",
           "type": "text",
           "primaryKey": false,
           "notNull": false

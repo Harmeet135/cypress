@@ -11,7 +11,6 @@ const TitleSection: React.FC<TitleSectionProps> = ({
   subheading,
   pill,
 }) => {
-  // console.log("reached title section");
   return (
     <React.Fragment>
       <section
