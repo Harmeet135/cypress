@@ -353,9 +353,28 @@ export const getCollaborators = async (workspaceId: string) => {
 
 export const getUsersFromSearch = async (email: string) => {
   if (!email) return [];
-  const accounts = db
-    .select()
-    .from(users)
-    .where(ilike(users.email, `${email}%`));
-  return accounts;
+  try {
+    const accounts = db
+      .select()
+      .from(users)
+      .where(ilike(users.email, `${email}%`));
+    return accounts;
+  } catch (error) {
+    console.error("Error in getUsersFromSearch: ", error);
+    return [];
+  }
 };
+
+// export const getAllEmails = async () => {
+//   try {
+//     const results = (await db
+//       .select()
+//       .from(files)
+//       .orderBy(files.createdAt)
+//       .where(eq(files.folderId, folderId))) as File[] | [];
+//     return { data: results, error: null };
+//   } catch (error) {
+//     console.log(error);
+//     return { data: null, error: 'Error' };
+//   }
+// };

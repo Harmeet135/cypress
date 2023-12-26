@@ -35,17 +35,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-// import {
-//   AlertDialog,
-//   AlertDialogAction,
-//   AlertDialogCancel,
-//   AlertDialogContent,
-//   AlertDialogDescription,
-//   AlertDialogFooter,
-//   AlertDialogHeader,
-//   AlertDialogTitle,
-//   AlertDialogTrigger,
-// } from '@/components/ui/alert-dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 import CollaboratorSearch from '../global/collaborator-search';
 import { Button } from '../ui/button';
@@ -55,13 +55,11 @@ import { Alert, AlertDescription } from '../ui/alert';
 import CypressProfileIcon from '../icons/cypressProfileIcon';
 // import LogoutButton from '../global/logout-button';
 import Link from 'next/link';
-// import { useSubscriptionModal } from '@/lib/providers/subscription-modal-provider';
 // import { postData } from '@/lib/utils';
 
 const SettingsForm = () => {
   const { toast } = useToast();
   const { user, subscription } = useSupabaseUser();
-  // const { open, setOpen } = useSubscriptionModal();
   const router = useRouter();
   const supabase = createClientComponentClient();
   const { state, workspaceId, dispatch } = useAppState();
@@ -75,19 +73,7 @@ const SettingsForm = () => {
   const [loadingPortal, setLoadingPortal] = useState(false);
 
 
-  // const redirectToCustomerPortal = async () => {
-  //   setLoadingPortal(true);
-  //   try {
-  //     const { url, error } = await postData({
-  //       url: '/api/create-portal-link',
-  //     });
-  //     window.location.assign(url);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setLoadingPortal(false);
-  //   }
-  //   setLoadingPortal(false);
-  // };
+ 
   //addcollborators
   const addCollaborator = async (profile: User) => {
     if (!workspaceId) return;
@@ -165,7 +151,7 @@ const SettingsForm = () => {
     } else setPermissions(val);
   };
 
-  //CHALLENGE fetching avatar details
+
   //WIP Payment Portal redirect
 
   useEffect(() => {
@@ -438,7 +424,6 @@ const SettingsForm = () => {
               variant={'secondary'}
               disabled={loadingPortal}
               className="text-sm"
-              // onClick={redirectToCustomerPortal}
             >
               Manage Subscription
             </Button>
@@ -450,14 +435,13 @@ const SettingsForm = () => {
               size="sm"
               variant={'secondary'}
               className="text-sm"
-              // onClick={() => setOpen(true)}
             >
               Start Plan
             </Button>
           </div>
         )}
       </>
-      {/* <AlertDialog open={openAlertMessage}>
+      <AlertDialog open={openAlertMessage}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure?</AlertDialogTitle>
@@ -475,7 +459,7 @@ const SettingsForm = () => {
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
-      </AlertDialog> */}
+      </AlertDialog>
     </div>
   );
 };
