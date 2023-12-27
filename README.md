@@ -1,3 +1,7 @@
+
+![image](https://github.com/Harmeet135/cypress/assets/96486082/8780ff1b-6783-4acb-9524-bde2e5177d80)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
