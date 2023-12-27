@@ -55,6 +55,7 @@ import { Alert, AlertDescription } from '../ui/alert';
 import CypressProfileIcon from '../icons/cypressProfileIcon';
 // import LogoutButton from '../global/logout-button';
 import Link from 'next/link';
+import { useSubscriptionModal } from '@/lib/providers/subscription-modal-provider';
 // import { postData } from '@/lib/utils';
 
 const SettingsForm = () => {
@@ -71,6 +72,7 @@ const SettingsForm = () => {
   const [uploadingProfilePic, setUploadingProfilePic] = useState(false);
   const [uploadingLogo, setUploadingLogo] = useState(false);
   const [loadingPortal, setLoadingPortal] = useState(false);
+  const {open , setOpen} = useSubscriptionModal();
 
 
  
@@ -78,7 +80,7 @@ const SettingsForm = () => {
   const addCollaborator = async (profile: User) => {
     if (!workspaceId) return;
     if (subscription?.status !== 'active' && collaborators.length >= 2) {
-      // setOpen(true);
+      setOpen(true);
       return;
     }
     await addCollaborators([profile], workspaceId);
@@ -422,7 +424,7 @@ const SettingsForm = () => {
               type="button"
               size="sm"
               variant={'secondary'}
-              disabled={loadingPortal}
+              // disabled={loadingPortal}
               className="text-sm"
             >
               Manage Subscription
@@ -435,6 +437,7 @@ const SettingsForm = () => {
               size="sm"
               variant={'secondary'}
               className="text-sm"
+              onClick={() => setOpen(true)}
             >
               Start Plan
             </Button>
