@@ -8,7 +8,6 @@ import React from 'react';
 const Workspace = async ({ params }: { params: { workspaceId: string } }) => {
   const { data, error } = await getWorkspaceDetails(params.workspaceId);
   console.log(data);
-  console.log(params , "param");
   if (error || !data.length) redirect('/dashboard');
   return (
     <div className="relative">

@@ -18,14 +18,12 @@ const UserCard: React.FC<UserCardProps> = async ({ subscription }) => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  console.log(user , "eui");
 
   if (!user) return;
   const response = await db.query.users.findFirst({
     where: (u, { eq }) => eq(u.id, user.id),
   });
   let avatarPath;
-  console.log(response , "resii");
   if (!response) return ;
   if (!response.avatarUrl) avatarPath = '';
   else {

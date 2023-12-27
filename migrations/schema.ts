@@ -128,6 +128,11 @@ export const users = pgTable('users', {
   email: text('email'),
 });
 
+export const customers = pgTable('customers', {
+  id: uuid('id').primaryKey().notNull(),
+  stripeCustomerId: text('stripe_customer_id'),
+});
+
 
 export const prices = pgTable('prices', {
   id: text('id').primaryKey().notNull(),
