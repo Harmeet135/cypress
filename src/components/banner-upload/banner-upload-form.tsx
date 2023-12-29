@@ -13,7 +13,7 @@ import { z } from 'zod';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-import Loader from '../global/Loader';
+import Loader from '../global/loader';
 import {
   updateFile,
   updateFolder,

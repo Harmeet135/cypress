@@ -24,7 +24,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { MailCheck } from 'lucide-react';
 import { FormSchema } from '@/lib/types';
 import { actionSignUpUser } from '@/lib/server-actions/auth-actions';
-import Loader from '@/components/global/Loader';
+import Loader from '@/components/global/loader';
 
 const SignUpFormSchema = z
   .object({
