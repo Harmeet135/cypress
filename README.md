@@ -5,25 +5,25 @@
 </div>
 
 
-Teck Stack - 
-
-Try it at [vercel](https://cypress-iota.vercel.app/)  
-  or[Railway](https://cypress-production.up.railway.app/) 
-
-
-
-
-
-
 ## About
-Hyperslice is a simple link shortener built using Vue, Nodejs, and MYSQL. The name comes from the first word in HTTP, and the action of slicing a link! <br><br>
-Check it out [here](https://link-shortener-sandy.vercel.app/)
+Cypress is a collaboration platform, enabling real-time, simultaneous document editing and project management for teams. It combines live cursor tracking, secure authentication, and efficient subscription handling through Stripe to provide a seamless user experience
+Try it at :-
+- [vercel](https://cypress-iota.vercel.app/)
+  (Real  Time collab might not work due vercel's serverless functions have a maximum execution duration so it cant maintain a websocket connection)
+- [Railway](https://cypress-production.up.railway.app/) 
 
-## Purpose
-The main purpose of this was mainly just because it was fun. I also wanted to learn a bit more about Vue and SQL. It's definitely not perfect, so be warned!
+
+## Teck Stack Used
+- Next 13
+- Supabase
+- Typescript
+- Drizzle orm
+- Tailwind
+- Stripe
+- Sockets.io
 
 ## Want to use it locally?
-1. Clone repo ```https://github.com/Harmeet135/link_shortener.git```
+1. Clone repo ```https://github.com/Harmeet135/cypress```
 2. From the project's root directory `npm install` in both the frontend and the backend directories
 3. Setup and create mysql tables with the schemas provided in schemas
 4. In both directories, run `npm run dev` to run development previews
