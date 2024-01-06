@@ -35,18 +35,17 @@ const CollaboratorSearch: React.FC<CollaboratorSearchProps> = ({
 
   useEffect(() => {
     return () => {
-      //searching the users from the search bar for collab
       if (timerRef.current) clearTimeout(timerRef.current);
-       timerRef.current = setTimeout(async () => {
-      const res = await getUsersFromSearch(e.target.value);
-      setSearchResults(res);
-    }, 450);
     };
   }, []);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+      //searching the users from the search bar for collab
     if (timerRef) clearTimeout(timerRef.current);
-   
+    timerRef.current = setTimeout(async () => {
+      const res = await getUsersFromSearch(e.target.value);
+      setSearchResults(res);
+    }, 450);
   };
 
   const addCollaborator = (user: User) => {
