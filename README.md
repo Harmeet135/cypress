@@ -9,6 +9,15 @@ Cypress is a collaboration platform, enabling real-time, simultaneous document e
 Try it at :-
 - [vercel](https://cypress-iota.vercel.app/)
   (Real  Time collab might not work due vercel's serverless functions have a maximum execution duration so it cant maintain a websocket connection)
+
+  Accounts for login-
+  
+  Email : test444@gmail.com
+   password : 123456
+  
+  Email : test135@gmail.com
+   password : 123456                         
+  
 - [Railway](https://cypress-production.up.railway.app/) 
 
 
