@@ -56,16 +56,15 @@ const HomePage = () => {
           </Button>
         </div>
         <div
-          className="md:mt-[-90px]
-          sm:w-full
-          w-[750px]
+          className="
+          w-fit
+          max-w-[750px]
           flex
+          mt-5
           justify-center
           items-center
-          mt-[-40px]
           relative
           sm:ml-0
-          ml-[-50px]
         "
         >
           <Image
